@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Marina 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff4d6d, #ff99ac);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        color: #ff3366;
+        font-size: 30px;
+    }
+
+    h2 {
+        color: #ff6699;
+        margin-top: -10px;
+    }
+
+    .buttons {
+        margin-top: 30px;
+        position: relative;
+        height: 80px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.3s;
+    }
+
+    #yesBtn {
+        background-color: #ff3366;
+        color: white;
+    }
+
+    #yesBtn:hover {
+        background-color: #e6004c;
+        transform: scale(1.1);
+    }
+
+    #noBtn {
+        background-color: #ff99ac;
+        color: white;
+        position: absolute;
+    }
+
+    #message {
+        margin-top: 20px;
+        font-size: 22px;
+        color: #ff3366;
+        display: none;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        bottom: -20px;
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-110vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Marina 💕</h1>
+    <h2>Will you be my Valentine? 💖</h2>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes 💍</button>
+        <button id="noBtn">No 😢</button>
+    </div>
+
+    <div id="message">
+        Yaaay Marina! 💖💕  
+        You just made me the happiest man alive! 😍  
+        I love you forever and always 💍❤️
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+
+    // Make "No" button move randomly
+    noBtn.addEventListener("mouseover", function() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // When Yes is clicked
+    yesBtn.addEventListener("click", function() {
+        message.style.display = "block";
+    });
+
+    // Floating hearts generator
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
